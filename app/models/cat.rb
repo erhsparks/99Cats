@@ -18,8 +18,8 @@ class Cat < ActiveRecord::Base
 
   def age
     today = Date.today
-    birth_date = @birth_date
+    birth_date = self.birth_date
 
-    ((today - birth_date) / 365).to_i
+    @age = ((today - birth_date) / 365).to_i
   end
 end
