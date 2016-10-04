@@ -7,33 +7,33 @@
   <input name="cat[name]" id="cat_name" type="text">
   <br>
 
-  <label for="cat_age">Age</label>
+  <!-- <label for="cat_age">Age</label>
   <input name="cat[age]" id="cat_age" type="number">
-  <br>
+  <br> -->
 
   <!-- this label isn't for anything specific -->
   <label>Sex</label>
   <div>
     <!-- note that both radio buttons have the name `cat[sex]`; that's how
          they are related -->
-    <input name="cat[sex]" id="cat_sex_m" type="radio" value="M">
+    <input name="cat[sex]" id="cat_sex_M" type="radio" value="M">
     <label for="cat_sex_m">Male</label>
-    <input name="cat[sex]" id="cat_sex_f" type="radio" value="F">
+    <input name="cat[sex]" id="cat_sex_F" type="radio" value="F">
     <label for="cat_sex_f">Female</label>
   </div>
   <br>
 
-  <label for="cat_biography">Biography</label>
-  <textarea name="cat[biography]" id="cat_biography"></textarea>
+  <label for="cat_description">Description</label>
+  <textarea name="cat[description]" id="cat_description"></textarea>
   <br>
 
-  <label for="cat_coat_color">Coat color</label>
+  <label for="cat_color">Color</label>
   <!-- dropdown -->
-  <select name="cat[coat_color]">
+  <select name="cat[color]">
     <!-- `brown` is the value that will be submitted to the server; user is
          displayed "Brown" as the choice -->
-    <option value="brown">Brown</option>
-    <option value="black">Black</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
     <option value="blue">Blue</option>
   </select>
   <br>
