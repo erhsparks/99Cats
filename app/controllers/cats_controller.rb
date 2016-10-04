@@ -13,6 +13,8 @@ class CatsController < ApplicationController
   end
 
   def new
+    @cat = Cat.new
+    
     render :new
   end
 
@@ -30,7 +32,7 @@ class CatsController < ApplicationController
 
   def update
     @cat = Cat.find(params[:id])
-    @cat.save(cat_params)
+    @cat.update!(cat_params)
 
     redirect_to cat_url(@cat.id)
   end
