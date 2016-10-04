@@ -1,5 +1,5 @@
 <h2>Cat form!</h2>
-<!-- <% url = @cat.id ? "/cats/#{@cat.id}" : "/cats" %> -->
+
 <% url = @cat.id ? cat_url : cats_url %>
 
 <form action=<%= url %> method="POST">

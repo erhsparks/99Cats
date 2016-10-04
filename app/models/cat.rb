@@ -16,6 +16,8 @@ class Cat < ActiveRecord::Base
       message: "%{value} is not a valid color"
     }
 
+  has_many :cat_rental_requests, dependent: :destroy
+
   def age
     today = Date.today
     birth_date = self.birth_date
