@@ -13,6 +13,21 @@ class CatRentalRequest < ActiveRecord::Base
 
   belongs_to :cat
 
+  def approve!
+    transaction do
+      update!(status: "APPROVED")
+
+      overlapping_requests.each do |request|
+        debugger
+        request.deny! if request.status == "PENDING"
+      end
+    end
+  end
+
+  def deny!
+    update!(status: "DENIED")
+  end
+
   def overlapping_requests
     previous_rentals = CatRentalRequest.where(:cat_id == self.cat_id)
 
