@@ -9,7 +9,7 @@ class CatRentalRequest < ActiveRecord::Base
       message: "%{value} is not a valid status"
     }
 
-  validate :cat_already_rented, :no_time_travel
+  validate :cat_already_rented, :no_time_travel, :after_today
 
   belongs_to :cat
 
@@ -43,6 +43,12 @@ class CatRentalRequest < ActiveRecord::Base
   def no_time_travel
     if self.end_date < self.start_date
       errors[:end_date] << "cannot be before start date!"
+    end
+  end
+
+  def after_today
+    if self.start_date < Date.today
+      errors[:start_date] << "cannot be in the past"
     end
   end
 end
