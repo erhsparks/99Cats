@@ -8,13 +8,15 @@ class CatsController < ApplicationController
 
   def show
     @cat = Cat.find(params[:id])
+    @rental_requests = CatRentalRequest.where(cat_id: @cat.id).order(:start_date)
+
 
     render :show
   end
 
   def new
     @cat = Cat.new
-    
+
     render :new
   end
 

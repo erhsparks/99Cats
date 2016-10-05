@@ -7,8 +7,9 @@ class CatRentalRequestsController < ApplicationController
 
   def create
     @rental_request = CatRentalRequest.create!(rental_params)
+    cat_id = @rental_request.cat_id
 
-    redirect_to cat_rental_request_url(@rental_request.id)
+    redirect_to cat_url(cat_id)
   end
 
   def show

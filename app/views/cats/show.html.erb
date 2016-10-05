@@ -1,4 +1,5 @@
-<p><%="#{@cat.name}"%></p>
+<h1><%="#{@cat.name}"%></h1>
+
 <table>
   <tr>
     <th>Age</th>
@@ -14,6 +15,23 @@
   </tr>
 </table>
 
+<br><br>
 
+<table>
+  <tr>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Rental status</th>
+  </tr>
+  <% @rental_requests.each do |rental_request| %>
+  <tr>
+    <td><%="#{rental_request.start_date}"%></td>
+    <td><%="#{rental_request.end_date}"%></td>
+    <td><%="#{rental_request.status}"%></td>
+  </tr>
+  <% end %>
+</table>
+
+<br><br>
 
 <%= link_to "All cats!", cats_url %>
