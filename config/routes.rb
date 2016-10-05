@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   #     resource :seller
   #   end
 
-  resources :cats, only: [:index, :show, :new, :create, :update, :edit]
+  resources :cats, only: [:index, :show, :new, :create, :update, :edit] do
+    resources :cat_rental_requests, only: :index
+  end
+
+  resources :cat_rental_requests, only: [:index, :show, :new, :create]
 
 end

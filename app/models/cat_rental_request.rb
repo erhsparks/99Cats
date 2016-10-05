@@ -9,12 +9,9 @@ class CatRentalRequest < ActiveRecord::Base
       message: "%{value} is not a valid status"
     }
 
-  validate :cat_already_rented
+  validate :cat_already_rented, :no_time_travel
 
   belongs_to :cat
-
-  
-
 
   def overlapping_requests
     previous_rentals = CatRentalRequest.where(:cat_id == self.cat_id)
@@ -40,6 +37,12 @@ class CatRentalRequest < ActiveRecord::Base
   def cat_already_rented
     if overlapping_approved_requests?
       errors[:cat_id] << "already rented for these dates!"
+    end
+  end
+
+  def no_time_travel
+    if self.end_date < self.start_date
+      errors[:end_date] << "cannot be before start date!"
     end
   end
 end
