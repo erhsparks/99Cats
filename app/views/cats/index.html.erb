@@ -6,3 +6,11 @@
     <li><%= link_to "#{cat.name}", cat_url(cat.id) %></li>
   <% end %>
 </ul>
+
+<br>
+
+<%= button_to "Add a cat", new_cat_url, method: :get %>
+
+<br>
+
+<%= button_to "Apply to rent a cat!", new_cat_rental_request_url, method: :get %>

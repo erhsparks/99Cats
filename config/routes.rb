@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
+  root to: redirect('/cats')
 
   resources :cats, only: [:index, :show, :new, :create, :update, :edit] do
     resources :cat_rental_requests, only: :index

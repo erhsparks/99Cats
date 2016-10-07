@@ -15,12 +15,11 @@ class CatRentalRequest < ActiveRecord::Base
 
   def approve!
     transaction do
-      update!(status: "APPROVED")
-
       overlapping_requests.each do |request|
-        debugger
         request.deny! if request.status == "PENDING"
       end
+
+      update!(status: "APPROVED")
     end
   end
 
